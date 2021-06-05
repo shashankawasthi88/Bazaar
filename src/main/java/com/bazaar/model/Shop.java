@@ -1,4 +1,4 @@
-package com.bazaar.modal;
+package com.bazaar.model;
 
 import java.util.List;
 
@@ -7,26 +7,26 @@ import java.util.List;
  *
  */
 public class Shop {
-	
-	private String id;
-	
+
+	private Long id;
+
 	private String name;
-	
+
 	private String address;
-	
+
 	private String phoneNumber;
-	
+
 	private List<Item> itemList;
-	
+
 	private List<Order> activeOrder;
-	
+
 	private List<Order> pastOrders;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -95,9 +95,5 @@ public class Shop {
 	public void setPastOrders(List<Order> pastOrders) {
 		this.pastOrders = pastOrders;
 	}
-	
-	
-	
-	
 
 }

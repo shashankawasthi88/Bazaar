@@ -1,47 +1,41 @@
-package com.bazaar.modal;
+package com.bazaar.model;
 
 /**
  * @author shashankawasthi
  *
  */
 public class Item {
-	
+
 	/**
 	 * Unique ID of the item
 	 */
-	private String id;
-	
+	private Long id;
+
 	/**
 	 * Name of the item
 	 */
 	private String name;
-	
+
 	/**
 	 * Image URL of the Item
 	 */
 	private String imageURL;
-	
+
 	/**
 	 * Unit price of the item
 	 */
 	private double unitPrice;
-	
+
 	/**
 	 * Measurement unit. To be converted to ENUM in future
 	 */
 	private String measurementUnit;
 
-	/**
-	 * @return the id
-	 */
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -16,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bazaar.entity.CustomerEntity;
-import com.bazaar.modal.Customer;
-import com.bazaar.modal.Item;
+import com.bazaar.model.Customer;
+import com.bazaar.model.Item;
 import com.bazaar.repository.CustomerRepository;
-
-
 
 /**
  * @author shashankawasthi
@@ -33,12 +31,11 @@ public class DemoService {
 	@Autowired
 	private CustomerRepository customerRepository;
 
-	
 	@GetMapping("/item/{id}")
 	public Item getItem(@PathParam(value = "id") String id) {
 
 		Item item = new Item();
-		item.setId("1");
+		item.setId(1L);
 		item.setImageURL("URL");
 		item.setMeasurementUnit("kg");
 		item.setName("Dal");
@@ -46,13 +43,12 @@ public class DemoService {
 		return item;
 	}
 
-	
 	@GetMapping("/getCustomerObject")
 	public Customer getCustomerObject() {
 
 		Customer customer = new Customer();
 		customer.setAddress("AA");
-		customer.setId("123");
+		customer.setId(1L);
 		Map<String, String> stringMap = new HashMap();
 		stringMap.put("1", "ABC");
 		customer.setAddresses(stringMap);
@@ -60,7 +56,6 @@ public class DemoService {
 		return customer;
 	}
 
-	
 	@PostMapping("/createcustomer")
 	public void createCustomer(@RequestBody Customer customer) {
 

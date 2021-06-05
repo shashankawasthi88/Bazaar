@@ -1,26 +1,27 @@
-package com.bazaar.modal;
+package com.bazaar.model;
 
 import java.util.Map;
+
 /**
  * @author shashankawasthi
  *
  */
 public class Order {
-	
+
 	private String customerId;
-	
+
 	private String shopId;
-	
+
 	private String deliveryAddress;
-	
-	private String id;
-	
-	Map<String,Float> itemQuantities;
-	
+
+	private Long id;
+
+	Map<String, Float> itemQuantities;
+
 	private Double totalPrice;
-	
+
 	private String orderTimestamp;
-	
+
 	private String status;
 
 	/**
@@ -51,17 +52,11 @@ public class Order {
 		this.deliveryAddress = deliveryAddress;
 	}
 
-	/**
-	 * @return the id
-	 */
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -133,5 +128,5 @@ public class Order {
 	 */
 	public void setShopId(String shopId) {
 		this.shopId = shopId;
-	}	
+	}
 }

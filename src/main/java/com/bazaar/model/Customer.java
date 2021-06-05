@@ -1,7 +1,7 @@
 /**
  * This class represent the user facing represntation of the Customer object
  */
-package com.bazaar.modal;
+package com.bazaar.model;
 
 import java.util.List;
 import java.util.Map;
@@ -11,44 +11,28 @@ import java.util.Map;
  *
  */
 public class Customer {
-	
-	
+
 	/**
 	 * Customer ID
 	 */
-	private String id;
-	
+	private Long id;
+
 	/**
 	 * Name of the Customer
 	 */
 	private String name;
-	
+
 	private String address;
-	
+
 	private String phoneNumber;
-	
-	private Map<String,String> addresses;
-	
+
+	private Map<String, String> addresses;
+
 	// Bag object to have list of orders
-	
-	
+
 	private List<Order> pastOrders;
-	
+
 	private List<Order> currentOrders;
-
-	/**
-	 * @return the id
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	/**
 	 * @return the name
@@ -132,5 +116,14 @@ public class Customer {
 	 */
 	public void setCurrentOrders(List<Order> currentOrders) {
 		this.currentOrders = currentOrders;
-	}	
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }
