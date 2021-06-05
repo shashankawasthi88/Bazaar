@@ -32,10 +32,12 @@ public class ShopControl {
 		Optional<ShopEntity> option = repository.findById(id);		 
 		
 		System.out.println("ShopEntity " + option);
+		
+		ShopEntity entity = option.get();
 		 
 		// Shop shop = new Shop();
-		 shop.setId("123");
-		 shop.setName("Name");
+		 shop.setId(entity.getId().toString());
+		 shop.setName(entity.getName());
 		 return shop;
 	}
 	
