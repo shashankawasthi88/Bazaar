@@ -1,6 +1,10 @@
 package com.bazaar.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.websocket.server.PathParam;
 
@@ -15,8 +19,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.bazaar.entity.ItemEntity;
 import com.bazaar.entity.ShopEntity;
+import com.bazaar.model.Item;
 import com.bazaar.model.Shop;
+import com.bazaar.repository.ItemRepository;
 import com.bazaar.repository.ShopRepository;
 
 @RestController
@@ -24,13 +31,16 @@ import com.bazaar.repository.ShopRepository;
 public class ShopControl {
 
 	@Autowired
-	ShopRepository repository;
+	ShopRepository shopRepository;
+
+	@Autowired
+	ItemRepository itemRepository;
 
 	@GetMapping("/shop/{id}")
 	public Shop getShop(@PathVariable Long id) {
 		Shop shop = new Shop();
 
-		Optional<ShopEntity> option = repository.findById(id);
+		Optional<ShopEntity> option = shopRepository.findById(id);
 
 		System.out.println("ShopEntity " + option);
 
@@ -41,6 +51,15 @@ public class ShopControl {
 			entity = option.get();
 			shop.setId(entity.getId());
 			shop.setName(entity.getName());
+			List<Item> items = new ArrayList<Item>();
+			for (ItemEntity itemEntity : entity.getItems()) {
+				Item item = new Item();
+				item.setId(itemEntity.getId());
+				item.setName(itemEntity.getName());
+				items.add(item);
+			}
+
+			shop.setItemList(items);
 
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "resource not found");
@@ -58,7 +77,20 @@ public class ShopControl {
 		// shopEntity.setId(shop.getId())
 		shopEntity.setName(shop.getName());
 
-		repository.save(shopEntity);
+		ItemEntity itemEntity;
+		Set<ItemEntity> itemEntities = new HashSet<ItemEntity>();
+
+		for (Item item : shop.getItemList()) {
+			itemEntity = new ItemEntity();
+			itemEntity.setName(item.getName());
+			itemEntity.setShop(shopEntity);
+			itemEntities.add(itemEntity);
+
+		}
+
+		// shopEntity.setItems(items);
+		shopRepository.save(shopEntity);
+		itemRepository.saveAll(itemEntities);
 		System.out.println("Created");
 
 		return shopEntity.getId();
@@ -67,12 +99,12 @@ public class ShopControl {
 
 	@PutMapping("/shop/{id}")
 	public Long updateShop(@PathVariable Long id, @RequestBody Shop shop) {
-		Optional<ShopEntity> option = repository.findById(id);
+		Optional<ShopEntity> option = shopRepository.findById(id);
 		ShopEntity shopEntity;
 		if (option.isPresent()) {
 			shopEntity = option.get();
 			shopEntity.setName(shop.getName());
-			repository.save(shopEntity);
+			shopRepository.save(shopEntity);
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "resource not found");
 		}
