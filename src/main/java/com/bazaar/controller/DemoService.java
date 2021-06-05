@@ -6,6 +6,8 @@ package com.bazaar.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +34,8 @@ public class DemoService {
 	private CustomerRepository customerRepository;
 
 	
-	@GetMapping("/item")
-	public Item getItem() {
+	@GetMapping("/item/{id}")
+	public Item getItem(@PathParam(value = "id") String id) {
 
 		Item item = new Item();
 		item.setId("1");
