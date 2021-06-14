@@ -18,7 +18,7 @@ public class ShopEntity {
 	
 	private String name;
 	
-	@OneToMany(mappedBy="shop")
+	@OneToMany(mappedBy="shop") //Antariksh
 	Set<ItemEntity> items;
 	
 	public Long getId() {
