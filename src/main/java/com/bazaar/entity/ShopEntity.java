@@ -18,7 +18,7 @@ public class ShopEntity {
 	
 	private String name;
 	
-	@OneToMany(mappedBy="shop") //Antariksh
+	@OneToMany(mappedBy="shop") //Antariksh is a lolodile
 	Set<ItemEntity> items;
 	
 	public Long getId() {
