@@ -30,6 +30,8 @@ public class Item {
 	 * Measurement unit. To be converted to ENUM in future
 	 */
 	private String measurementUnit;
+	
+	private double quantity;
 
 	public Long getId() {
 		return id;
@@ -94,4 +96,20 @@ public class Item {
 	public void setMeasurementUnit(String measurementUnit) {
 		this.measurementUnit = measurementUnit;
 	}
+
+	/**
+	 * @return the quantity
+	 */
+	public double getQuantity() {
+		return quantity;
+	}
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(double quantity) {
+		this.quantity = quantity;
+	}
+	
+	
 }

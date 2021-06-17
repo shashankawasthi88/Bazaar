@@ -44,15 +44,15 @@ public class ShopControl {
 
 		System.out.println("ShopEntity " + option);
 
-		ShopEntity entity;
+		ShopEntity shopEntity;
 
 		// Shop shop = new Shop();
 		if (option.isPresent()) {
-			entity = option.get();
-			shop.setId(entity.getId());
-			shop.setName(entity.getName());
+			shopEntity = option.get();
+			shop.setId(shopEntity.getId());
+			shop.setName(shopEntity.getName());
 			List<Item> items = new ArrayList<Item>();
-			for (ItemEntity itemEntity : entity.getItems()) {
+			for (ItemEntity itemEntity : shopEntity.getItems()) {
 				Item item = new Item();
 				item.setId(itemEntity.getId());
 				item.setName(itemEntity.getName());
