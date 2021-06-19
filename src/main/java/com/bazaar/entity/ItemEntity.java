@@ -5,7 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKey;
 
 import com.bazaar.model.Shop;
 
@@ -46,6 +48,7 @@ public class ItemEntity {
 	@ManyToOne
 	@JoinColumn(name = "shop_id", nullable = false)
 	private ShopEntity shop;
+	
 
 	public Long getId() {
 		return id;
@@ -117,8 +120,6 @@ public class ItemEntity {
 
 	public void setShop(ShopEntity shop) {
 		this.shop = shop;
-	}
-
-	
+	}	
 
 }

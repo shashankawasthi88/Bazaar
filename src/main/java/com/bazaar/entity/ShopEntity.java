@@ -1,12 +1,12 @@
 package com.bazaar.entity;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,8 +18,11 @@ public class ShopEntity {
 	
 	private String name;
 	
-	@OneToMany(mappedBy="shop") //Antariksh is a lolodile 123
+	@OneToMany(mappedBy="shop")
 	Set<ItemEntity> items;
+	
+	@ManyToMany(mappedBy = "shopEntities")
+	Set<CustomerEntity> customerEntities;
 	
 	public Long getId() {
 		return id;
@@ -43,6 +46,20 @@ public class ShopEntity {
 
 	public void setItems(Set<ItemEntity> items) {
 		this.items = items;
+	}
+
+	/**
+	 * @return the customerEntities
+	 */
+	public Set<CustomerEntity> getCustomerEntities() {
+		return customerEntities;
+	}
+
+	/**
+	 * @param customerEntities the customerEntities to set
+	 */
+	public void setCustomerEntities(Set<CustomerEntity> customerEntities) {
+		this.customerEntities = customerEntities;
 	}
 	
 	

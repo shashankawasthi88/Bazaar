@@ -62,7 +62,7 @@ public class DemoService {
 		System.out.println("Customer ID:" + customer.getId() + "Customer Address" + customer.getAddress());
 
 		CustomerEntity customerEntity = new CustomerEntity();
-		customerEntity.setAddress(customer.getAddress());
+		//customerEntity.setAddress(customer.getAddress());
 		customerEntity.setName(customer.getName());
 		customerRepository.save(customerEntity);
 
