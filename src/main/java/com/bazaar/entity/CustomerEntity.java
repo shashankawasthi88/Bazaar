@@ -63,6 +63,9 @@ public class CustomerEntity {
 
 	@OneToMany(mappedBy="customerEntity")
 	private Set<CartEntity> cartEntities;
+	
+	@OneToMany(mappedBy="customerEntity")
+	private Set<OrderEntity> orderEntity;
 
 	public Long getId() {
 		return id;
@@ -142,6 +145,20 @@ public class CustomerEntity {
 	 */
 	public void setShopEntities(Set<ShopEntity> shopEntities) {
 		this.shopEntities = shopEntities;
+	}
+
+	/**
+	 * @return the orderEntity
+	 */
+	public Set<OrderEntity> getOrderEntity() {
+		return orderEntity;
+	}
+
+	/**
+	 * @param orderEntity the orderEntity to set
+	 */
+	public void setOrderEntity(Set<OrderEntity> orderEntity) {
+		this.orderEntity = orderEntity;
 	}
 
 	
