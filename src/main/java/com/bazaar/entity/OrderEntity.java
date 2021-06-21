@@ -76,6 +76,11 @@ public class OrderEntity {
 	/**
 	 * Timestamps corresponding to each state of the order
 	 */
+	@ElementCollection
+    @CollectionTable(name = "order_status_timestamp", 
+      joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
+    @MapKeyColumn(name = "order_status")
+    @Column(name = "timestamp")
 	private Map<OrderStatus,Long> orderTimestamps;
 	
 	/**
