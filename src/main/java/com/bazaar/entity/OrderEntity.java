@@ -2,12 +2,18 @@ package com.bazaar.entity;
 
 import java.util.Map;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKeyColumn;
+
+import com.bazaar.common.constants.OrderStatus;
 
 @Entity
 public class OrderEntity {
@@ -82,6 +88,33 @@ public class OrderEntity {
 	 * Order delivery address
 	 */
 	private String deliveryAddress;
+	
+	
+	/**
+	 * Total price of the order
+	 */
+	private Double totalPrice;
+	
+	/**
+	 * Quantities of item ordered
+	 */
+	@ElementCollection
+    @CollectionTable(name = "order_item_mapping", 
+      joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
+    @MapKeyColumn(name = "item_id")
+    @Column(name = "quantity")
+	private Map<Long, Double> itemQuantities;
+	
+	
+	/**
+	 * Quantities of item ordered
+	 */
+	@ElementCollection
+    @CollectionTable(name = "return_order_item_mapping", 
+      joinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
+    @MapKeyColumn(name = "item_id")
+    @Column(name = "quantity")
+	private Map<Long, Double> returnedItemQuantities;
 	
 	
 
@@ -266,4 +299,48 @@ public class OrderEntity {
 	public void setDeliveryAddress(String deliveryAddress) {
 		this.deliveryAddress = deliveryAddress;
 	}
+
+	/**
+	 * @return the itemQuantities
+	 */
+	public Map<Long, Double> getItemQuantities() {
+		return itemQuantities;
+	}
+
+	/**
+	 * @param itemQuantities the itemQuantities to set
+	 */
+	public void setItemQuantities(Map<Long, Double> itemQuantities) {
+		this.itemQuantities = itemQuantities;
+	}
+
+	/**
+	 * @return the returnedItemQuantities
+	 */
+	public Map<Long, Double> getReturnedItemQuantities() {
+		return returnedItemQuantities;
+	}
+
+	/**
+	 * @param returnedItemQuantities the returnedItemQuantities to set
+	 */
+	public void setReturnedItemQuantities(Map<Long, Double> returnedItemQuantities) {
+		this.returnedItemQuantities = returnedItemQuantities;
+	}
+
+	/**
+	 * @return the totalPrice
+	 */
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+
+	/**
+	 * @param totalPrice the totalPrice to set
+	 */
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	
+	
 }

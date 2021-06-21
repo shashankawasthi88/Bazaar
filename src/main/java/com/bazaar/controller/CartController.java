@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.bazaar.common.constants.CartStatus;
 import com.bazaar.entity.CartEntity;
-import com.bazaar.entity.CartEntityStatus;
 import com.bazaar.entity.CustomerEntity;
 import com.bazaar.model.Cart;
 import com.bazaar.repository.CartRepository;
@@ -35,7 +35,7 @@ public class CartController {
 	public long createCart(@RequestBody Cart cart) {
 		System.out.println(cart);
 		CartEntity cartEntity = new CartEntity();
-		cartEntity.setCartEntityStatus(CartEntityStatus.ACTIVE);
+		cartEntity.setCartEntityStatus(CartStatus.ACTIVE);
 		System.out.println("customerID   "+ cart.getCustomerId());
 		Optional<CustomerEntity> customerEntityOptional = customerRepository.findById(cart.getCustomerId());
 		cartEntity.setCustomerEntity(customerEntityOptional.get());
@@ -76,7 +76,7 @@ public class CartController {
 		if (optionalCart.isPresent()) {
 
 			CartEntity cartEntity = optionalCart.get();
-			cartEntity.setCartEntityStatus(CartEntityStatus.ACTIVE);
+			cartEntity.setCartEntityStatus(cart.getCartStatus());
 			cartEntity.setCustomerEntity(customerRepository.findById(cart.getCustomerId()).get());
 			cartEntity.setItemQuantities(cart.getItemQuantityMap());
 			// Map<Long, Double> returnedItemQuantityMap = new HashMap<Long, Double>();

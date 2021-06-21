@@ -1,4 +1,4 @@
-package com.bazaar.model;
+package com.bazaar.common.constants;
 
 public enum CartStatus {
 	ACTIVE

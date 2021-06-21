@@ -3,6 +3,8 @@ package com.bazaar.model;
 import java.util.Currency;
 import java.util.Map;
 
+import com.bazaar.common.constants.CartStatus;
+
 /**
  * 
  * @author shashankawasthi
@@ -49,6 +51,12 @@ public class Cart {
 	 * Total saving gained in a cart
 	 */
 	private double totalSavings;
+	
+	
+	/**
+	 * Status of the cart
+	 */
+	private CartStatus cartStatus;
 
 	/**
 	 * @return the id
@@ -146,6 +154,21 @@ public class Cart {
 	 */
 	public void setTotalSavings(double totalSavings) {
 		this.totalSavings = totalSavings;
+	}	
+	
+
+	/**
+	 * @return the cartStatus
+	 */
+	public CartStatus getCartStatus() {
+		return cartStatus;
+	}
+
+	/**
+	 * @param cartStatus the cartStatus to set
+	 */
+	public void setCartStatus(CartStatus cartStatus) {
+		this.cartStatus = cartStatus;
 	}
 
 	@Override

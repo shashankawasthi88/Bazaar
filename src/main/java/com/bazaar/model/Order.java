@@ -3,6 +3,8 @@ package com.bazaar.model;
 import java.util.Currency;
 import java.util.Map;
 
+import com.bazaar.common.constants.OrderStatus;
+
 /**
  * @author shashankawasthi
  *
@@ -18,12 +20,12 @@ public class Order {
 	/**
 	 * The ID of the customer
 	 */
-	private String customerId;
+	private Long customerId;
 
 	/**
 	 * The ID of the shop on which the order is placed
 	 */
-	private String shopId;
+	private Long shopId;
 
 	/**
 	 * Address for the order delivery
@@ -33,7 +35,7 @@ public class Order {
 	/**
 	 * Items of the order
 	 */
-	private Map<String, Float> itemQuantities;
+	private Map<Long, Double> itemQuantities;
 
 	/**
 	 * Total price for the order
@@ -85,7 +87,7 @@ public class Order {
 	/**
 	 * The invoice ID
 	 */
-	private long invoiceId;
+	private String invoiceId;
 	
 	
 	
@@ -98,7 +100,7 @@ public class Order {
 	/**
 	 * The item qauntity map modified and suggested by the shopkeeper
 	 */
-	private Map<Item,Double> itemModifiedQuantityMap;
+	private Map<Long,Double> itemModifiedQuantityMap;
 
 
 	/**
@@ -122,7 +124,7 @@ public class Order {
 	/**
 	 * @return the customerId
 	 */
-	public String getCustomerId() {
+	public Long getCustomerId() {
 		return customerId;
 	}
 
@@ -131,7 +133,7 @@ public class Order {
 	/**
 	 * @param customerId the customerId to set
 	 */
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -140,7 +142,7 @@ public class Order {
 	/**
 	 * @return the shopId
 	 */
-	public String getShopId() {
+	public Long getShopId() {
 		return shopId;
 	}
 
@@ -149,7 +151,7 @@ public class Order {
 	/**
 	 * @param shopId the shopId to set
 	 */
-	public void setShopId(String shopId) {
+	public void setShopId(Long shopId) {
 		this.shopId = shopId;
 	}
 
@@ -176,7 +178,7 @@ public class Order {
 	/**
 	 * @return the itemQuantities
 	 */
-	public Map<String, Float> getItemQuantities() {
+	public Map<Long, Double> getItemQuantities() {
 		return itemQuantities;
 	}
 
@@ -185,7 +187,7 @@ public class Order {
 	/**
 	 * @param itemQuantities the itemQuantities to set
 	 */
-	public void setItemQuantities(Map<String, Float> itemQuantities) {
+	public void setItemQuantities(Map<Long, Double> itemQuantities) {
 		this.itemQuantities = itemQuantities;
 	}
 
@@ -356,7 +358,7 @@ public class Order {
 	/**
 	 * @return the invoiceId
 	 */
-	public long getInvoiceId() {
+	public String getInvoiceId() {
 		return invoiceId;
 	}
 
@@ -365,7 +367,7 @@ public class Order {
 	/**
 	 * @param invoiceId the invoiceId to set
 	 */
-	public void setInvoiceId(long invoiceId) {
+	public void setInvoiceId(String invoiceId) {
 		this.invoiceId = invoiceId;
 	}
 
@@ -392,7 +394,7 @@ public class Order {
 	/**
 	 * @return the itemModifiedQuantityMap
 	 */
-	public Map<Item, Double> getItemModifiedQuantityMap() {
+	public Map<Long, Double> getItemModifiedQuantityMap() {
 		return itemModifiedQuantityMap;
 	}
 
@@ -401,7 +403,7 @@ public class Order {
 	/**
 	 * @param itemModifiedQuantityMap the itemModifiedQuantityMap to set
 	 */
-	public void setItemModifiedQuantityMap(Map<Item, Double> itemModifiedQuantityMap) {
+	public void setItemModifiedQuantityMap(Map<Long, Double> itemModifiedQuantityMap) {
 		this.itemModifiedQuantityMap = itemModifiedQuantityMap;
 	}
 	

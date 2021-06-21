@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapKeyColumn;
 
+import com.bazaar.common.constants.CartStatus;
+
 @Entity
 public class CartEntity {
 
@@ -68,7 +70,7 @@ public class CartEntity {
 	 * Status of the cart
 	 */
 	@Enumerated(EnumType.ORDINAL)
-	private CartEntityStatus cartEntityStatus;
+	private CartStatus cartEntityStatus;
 
 	/**
 	 * @return the id
@@ -171,14 +173,14 @@ public class CartEntity {
 	/**
 	 * @return the cartEntityStatus
 	 */
-	public CartEntityStatus getCartEntityStatus() {
+	public CartStatus getCartEntityStatus() {
 		return cartEntityStatus;
 	}
 
 	/**
 	 * @param cartEntityStatus the cartEntityStatus to set
 	 */
-	public void setCartEntityStatus(CartEntityStatus cartEntityStatus) {
+	public void setCartEntityStatus(CartStatus cartEntityStatus) {
 		this.cartEntityStatus = cartEntityStatus;
 	}
 
