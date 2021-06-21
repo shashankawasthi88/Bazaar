@@ -28,7 +28,7 @@ public class Cart {
 	/**
 	 * The item quantity map initially placed by the customer
 	 */
-	private Map<Item,Double> itemQuantityMap;
+	private Map<Long,Double> itemQuantityMap;
 	
 	/**
 	 * The item qauntity map modified and suggested by the shopkeeper
@@ -95,14 +95,14 @@ public class Cart {
 	/**
 	 * @return the itemQuantityMap
 	 */
-	public Map<Item, Double> getItemQuantityMap() {
+	public Map<Long, Double> getItemQuantityMap() {
 		return itemQuantityMap;
 	}
 
 	/**
 	 * @param itemQuantityMap the itemQuantityMap to set
 	 */
-	public void setItemQuantityMap(Map<Item, Double> itemQuantityMap) {
+	public void setItemQuantityMap(Map<Long, Double> itemQuantityMap) {
 		this.itemQuantityMap = itemQuantityMap;
 	}
 
@@ -148,4 +148,13 @@ public class Cart {
 		this.totalSavings = totalSavings;
 	}
 
+	@Override
+	public String toString() {
+		return "Cart [Id=" + Id + ", customerId=" + customerId + ", shopId=" + shopId + ", itemQuantityMap="
+				+ itemQuantityMap + ", totalPrice=" + totalPrice + ", currency=" + currency + ", totalSavings="
+				+ totalSavings + "]";
+	}
+
+	
+	
 }

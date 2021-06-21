@@ -2,7 +2,6 @@ package com.bazaar.entity;
 
 import java.util.Map;
 
-import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -13,11 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapKey;
 import javax.persistence.MapKeyColumn;
-import javax.persistence.OneToMany;
 
 @Entity
 public class CartEntity {
@@ -44,16 +40,19 @@ public class CartEntity {
     @MapKeyColumn(name = "item_id")
     @Column(name = "quantity")
 	private Map<Long, Double> itemQuantities;
-
+	
+	
 	/**
-	 * Quantities of item modified by the shopkeeper
+	 * Quantities of item ordered
 	 */
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinTable(name = "modified_cart_item_mapping", joinColumns = {
-//			@JoinColumn(name = "cart_id", referencedColumnName = "id") }, inverseJoinColumns = {
-//					@JoinColumn(name = "item_id", referencedColumnName = "id") })
-//	private Map<ItemEntity, Double> modifiedItemQuantities;
+	@ElementCollection
+    @CollectionTable(name = "return_cart_item_mapping", 
+      joinColumns = {@JoinColumn(name = "cart_id", referencedColumnName = "id")})
+    @MapKeyColumn(name = "item_id")
+    @Column(name = "quantity")
+	private Map<Long, Double> returnedItemQuantities;
 
+	
 	/**
 	 * Total price of the order
 	 */
@@ -182,5 +181,21 @@ public class CartEntity {
 	public void setCartEntityStatus(CartEntityStatus cartEntityStatus) {
 		this.cartEntityStatus = cartEntityStatus;
 	}
+
+	/**
+	 * @return the returnedItemQuantities
+	 */
+	public Map<Long, Double> getReturnedItemQuantities() {
+		return returnedItemQuantities;
+	}
+
+	/**
+	 * @param returnedItemQuantities the returnedItemQuantities to set
+	 */
+	public void setReturnedItemQuantities(Map<Long, Double> returnedItemQuantities) {
+		this.returnedItemQuantities = returnedItemQuantities;
+	}
+	
+	
 
 }
