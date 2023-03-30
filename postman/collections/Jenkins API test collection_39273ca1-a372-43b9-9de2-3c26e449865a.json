@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a04cac0b-8723-403c-9935-1e5258752b3d",
+		"_postman_id": "9705a6c7-184f-4557-9997-6acfd73af4bf",
 		"name": "Jenkins API test collection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "12420868-9705a6c7-184f-4557-9997-6acfd73af4bf"
 	},
 	"item": [
 		{
@@ -11,7 +12,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1862f740-428c-4a29-9384-688ebbd4bdec",
+						"id": "4d776993-1e6b-4ed9-ab25-a3bc7658499b",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -21,7 +22,7 @@
 					}
 				}
 			],
-			"id": "a718fa54-e144-4d81-afda-4e9daa4a62e2",
+			"id": "2d0a6010-8a0b-428a-aae2-912de71f5c62",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -48,7 +49,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ab3ef7f7-e682-4b1b-b172-146c93e01009",
+						"id": "3f9e40cd-65b4-4b8e-a2df-e4bc30fcce9b",
 						"exec": [
 							"pm.test(\"Status code is 404\", function () {",
 							"    pm.response.to.have.status(404);",
@@ -58,7 +59,7 @@
 					}
 				}
 			],
-			"id": "8f876ac3-d70e-481d-9acd-0fc603061d42",
+			"id": "b5a8c03d-e5b0-4de9-a60c-bdcdc4feea36",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -93,7 +94,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "21e865a4-9e46-4ebd-b781-cfe41d106f8f",
+				"id": "2969ed0e-db97-40c7-baab-b2227b116dc1",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -103,7 +104,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "2861c40b-3c8b-4837-bef7-e4dabddf620b",
+				"id": "b5139efb-0223-459d-9e08-7ce2b889331a",
 				"type": "text/javascript",
 				"exec": [
 					""
